@@ -1,20 +1,21 @@
 (function () {
 
-  var loadTemplate = function (templateName) {
-    var node = document.createElement('span');
-    var template = document.getElementById(templateName);
-    var content = template.content ? template.content : template;
+  let loadTemplate = templateName => {
+    let node = document.createElement('span');
+    let template = document.getElementById(templateName);
+    let content = template.content ? template.content : template;
     node.appendChild(content);
     return node.cloneNode(true);
   };
 
 
   // Rules
-  var rulesElement = loadTemplate('rules');
-  var rulesSubmit = rulesElement.querySelector('.rules__button');
+  let rulesElement = loadTemplate('rules');
+  let rulesSubmit = rulesElement.querySelector('.rules__button');
+  let rulesField = rulesElement.querySelector('.rules__input');
 
-  rulesElement.querySelector('.rules__input').oninput = function () {
-    if (this.value) {
+  rulesField.oninput = () => {
+    if (rulesField.value) {
       rulesSubmit.removeAttribute('disabled');
     } else {
       rulesSubmit.setAttribute('disabled', '');
@@ -23,16 +24,16 @@
 
   // Slides changer
 
-  var mainElement = document.getElementById('main');
+  let mainElement = document.getElementById('main');
 
-  var switcher = document.createElement('div');
+  let switcher = document.createElement('div');
   switcher.innerHTML = '' +
     '<span class="prev"><img src="img/arrow_left.svg" alt="Left" width="50" height="50"></span>   ' +
     '<span class="next"><img src="img/arrow_right.svg" alt="Right" width="50" height="50"></span>';
   switcher.style.cssText = 'text-align: center';
   mainElement.after(switcher);
 
-  var slides = [
+  let slides = [
     loadTemplate('intro'),
     loadTemplate('greeting'),
     rulesElement,
@@ -41,21 +42,21 @@
     loadTemplate('game-3'),
     loadTemplate('stats')
   ];
-  var current = -1;
+  let current = -1;
 
-  var select = function (index) {
+  let select = index => {
     current = index;
     mainElement.innerHTML = '';
     mainElement.appendChild(slides[index]);
   };
 
-  document.querySelector('.next').onclick = function (e) {
+  document.querySelector('.next').onclick = e => {
     e.preventDefault();
 
     select(current + 1);
   };
 
-  document.querySelector('.prev').onclick = function (e) {
+  document.querySelector('.prev').onclick = e => {
     e.preventDefault();
 
     select(current - 1);
