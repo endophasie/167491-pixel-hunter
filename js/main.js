@@ -1,6 +1,6 @@
 (function () {
 
-  let loadTemplate = templateName => {
+  let loadTemplate = (templateName) => {
     let node = document.createElement('span');
     let template = document.getElementById(templateName);
     let content = template.content ? template.content : template;
@@ -44,19 +44,19 @@
   ];
   let current = -1;
 
-  let select = index => {
+  let select = (index) => {
     current = index;
     mainElement.innerHTML = '';
     mainElement.appendChild(slides[index]);
   };
 
-  document.querySelector('.next').onclick = e => {
+  document.querySelector('.next').onclick = (e) => {
     e.preventDefault();
 
     select(current + 1);
   };
 
-  document.querySelector('.prev').onclick = e => {
+  document.querySelector('.prev').onclick = (e) => {
     e.preventDefault();
 
     select(current - 1);
