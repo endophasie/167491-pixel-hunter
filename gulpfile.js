@@ -10,8 +10,7 @@ const server = require('browser-sync').create();
 const mqpacker = require('css-mqpacker');
 const minify = require('gulp-csso');
 const rename = require('gulp-rename');
-const babel = require('gulp-babel');
-const sourcemaps = require('gulp-sourcemaps');
+const webpack = require('gulp-webpack');
 const imagemin = require('gulp-imagemin');
 
 gulp.task('style', function () {
@@ -38,13 +37,24 @@ gulp.task('style', function () {
 });
 
 gulp.task('scripts', function () {
-  return gulp.src('js/**/*.js')
+  return gulp.src('js/main.js')
     .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-      presets: ['es2015']
+    .pipe(webpack({
+      devtool: 'source-map',
+      module: {
+        loaders: [{
+          test: /.js?$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          query: {
+            presets: ['es2015']
+          }
+        }]
+      },
+      output: {
+        filename: 'main.js'
+      }
     }))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/js/'));
 });
 
