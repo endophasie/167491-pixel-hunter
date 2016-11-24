@@ -1,3 +1,4 @@
+//export loadTemplate loadTemplate.js
 (function () {
 
   let loadTemplate = (templateName) => {
