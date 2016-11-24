@@ -1,4 +1,4 @@
-const loadTemplate = require('loadTemplate.js');
+import loadTemplate from './loadTemplate.js';
 
 let screenGame2 = loadTemplate(`
 					<header class="header">
