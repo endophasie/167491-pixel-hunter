@@ -43,7 +43,7 @@ gulp.task('scripts', function () {
       devtool: 'source-map',
       module: {
         loaders: [{
-          test: /.js?$/,
+          test: /.js$/,
           loader: 'babel-loader',
           exclude: /node_modules/,
           query: {
