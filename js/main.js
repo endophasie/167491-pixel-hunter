@@ -1,18 +1,16 @@
+import screenIntro from './screenIntro.js';
+import screenGreeting from './screenGreeting.js';
+import screenRules from './screenRules.js';
+import screenGame1 from './screenGame1.js';
+import screenGame2 from './screenGame2.js';
+import screenGame3 from './screenGame3.js';
+import screenStats from './screenStats.js';
+
 (function () {
 
-  let loadTemplate = (templateName) => {
-    let node = document.createElement('span');
-    let template = document.getElementById(templateName);
-    let content = template.content ? template.content : template;
-    node.appendChild(content);
-    return node.cloneNode(true);
-  };
-
-
   // Rules
-  let rulesElement = loadTemplate('rules');
-  let rulesSubmit = rulesElement.querySelector('.rules__button');
-  let rulesField = rulesElement.querySelector('.rules__input');
+  let rulesSubmit = screenRules.querySelector('.rules__button');
+  let rulesField = screenRules.querySelector('.rules__input');
 
   rulesField.oninput = (e) => {
     if (e.target.value) {
@@ -37,13 +35,13 @@
   mainElement.after(switcher);
 
   let slides = [
-    loadTemplate('intro'),
-    loadTemplate('greeting'),
-    rulesElement,
-    loadTemplate('game-1'),
-    loadTemplate('game-2'),
-    loadTemplate('game-3'),
-    loadTemplate('stats')
+    screenIntro,
+    screenGreeting,
+    screenRules,
+    screenGame1,
+    screenGame2,
+    screenGame3,
+    screenStats
   ];
   let current = -1;
 
