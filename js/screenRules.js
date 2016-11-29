@@ -1,4 +1,7 @@
 import loadTemplate from './loadTemplate.js';
+import showSlide from './showSlide.js';
+import screenGreeting from './screenGreeting.js';
+import screenGame1 from './screenGame1.js';
 
 let screenRules = loadTemplate(`
           <header class="header">
@@ -25,4 +28,31 @@ let screenRules = loadTemplate(`
               <button class="rules__button  continue" type="submit" disabled>Go!</button>
             </form>
           </div>`);
+
+showSlide(screenRules);
+
+const rulesBack = document.querySelector('.header__back');
+
+rulesBack.addEventListener('click', () => {
+  showSlide(screenGreeting);
+});
+
+const rulesForm = document.querySelector('.rules__form');
+const rulesSubmit = rulesForm.querySelector('.rules__button');
+const rulesField = rulesForm.querySelector('.rules__input');
+
+rulesField.oninput = (e) => {
+  if (e.target.value) {
+    rulesSubmit.removeAttribute('disabled');
+  } else {
+    rulesSubmit.setAttribute('disabled', '');
+  }
+};
+
+rulesForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  showSlide(screenGame1);
+});
+
 export default screenRules;
