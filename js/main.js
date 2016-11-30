@@ -3,8 +3,10 @@ import screenIntro from './screenIntro.js';
 
 (function () {
 
-  document.addEventListener('DOMContentLoaded', () => {
+  const init = () => {
     showSlide(screenIntro);
-  });
+  };
+
+  document.addEventListener('DOMContentLoaded', init);
 
 })();

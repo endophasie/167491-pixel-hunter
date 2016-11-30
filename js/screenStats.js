@@ -112,9 +112,9 @@ let screenStats = loadTemplate(`
             </table>
           </div>`);
 
-showSlide(screenStats);
+const stats = showSlide(screenStats);
 
-const gameBack = document.querySelector('.header__back');
+const gameBack = stats.querySelector('.header__back');
 
 gameBack.addEventListener('click', () => {
   showSlide(screenRules);

@@ -19,13 +19,12 @@ let screenGreeting = loadTemplate(`
             </div>
           </div>`);
 
-showSlide(screenGreeting);
+const greeting = showSlide(screenGreeting);
 
-const arrContinue = document.querySelector('.greeting__continue');
+const arrContinue = greeting.querySelector('.greeting__continue');
 
 arrContinue.addEventListener('click', () => {
   showSlide(screenRules);
 });
-
 
 export default screenGreeting;

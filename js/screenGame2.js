@@ -1,6 +1,5 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
-import screenGame1 from './screenGame1.js';
 import screenGame3 from './screenGame3.js';
 
 let screenGame2 = loadTemplate(`
@@ -49,15 +48,9 @@ let screenGame2 = loadTemplate(`
             </div>
           </div>`);
 
-showSlide(screenGame2);
+const game2 = showSlide(screenGame2);
 
-const gameBack = document.querySelector('.header__back');
-
-gameBack.addEventListener('click', () => {
-  showSlide(screenGame1);
-});
-
-const answer = document.querySelectorAll('.game__answer');
+const answer = game2.querySelectorAll('.game__answer');
 
 for (let i = 0; i < answer.length; i++) {
   answer[i].addEventListener('click', () => {

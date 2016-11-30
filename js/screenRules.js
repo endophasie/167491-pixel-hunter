@@ -1,6 +1,5 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
-import screenGreeting from './screenGreeting.js';
 import screenGame1 from './screenGame1.js';
 
 let screenRules = loadTemplate(`
@@ -29,15 +28,9 @@ let screenRules = loadTemplate(`
             </form>
           </div>`);
 
-showSlide(screenRules);
+const rules = showSlide(screenRules);
 
-const rulesBack = document.querySelector('.header__back');
-
-rulesBack.addEventListener('click', () => {
-  showSlide(screenGreeting);
-});
-
-const rulesForm = document.querySelector('.rules__form');
+const rulesForm = rules.querySelector('.rules__form');
 const rulesSubmit = rulesForm.querySelector('.rules__button');
 const rulesField = rulesForm.querySelector('.rules__input');
 

@@ -3,5 +3,8 @@ let showSlide = (slide) => {
 
   mainElement.innerHTML = '';
   mainElement.appendChild(slide);
+
+  return slide;
 };
+
 export default showSlide;

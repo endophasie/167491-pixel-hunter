@@ -9,10 +9,9 @@ let screenIntro = loadTemplate(`
             Sparnaay.</p>
           </div>`);
 
-showSlide(screenIntro);
+const intro = showSlide(screenIntro);
 
-const introBox = document.querySelector('.intro');
-const asterisk = introBox.querySelector('.intro__asterisk');
+const asterisk = intro.querySelector('.intro__asterisk');
 
 asterisk.addEventListener('click', () => {
   showSlide(screenGreeting);
