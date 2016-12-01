@@ -1,4 +1,6 @@
 import loadTemplate from './loadTemplate.js';
+import showSlide from './showSlide.js';
+import screenRules from './screenRules.js';
 
 let screenGreeting = loadTemplate(`
           <div class="greeting central--blur">
@@ -16,4 +18,13 @@ let screenGreeting = loadTemplate(`
               <span><img src="img/arrow_right.svg" width="64" height="64" alt="Next"></span>
             </div>
           </div>`);
+
+const greeting = showSlide(screenGreeting);
+
+const arrContinue = greeting.querySelector('.greeting__continue');
+
+arrContinue.addEventListener('click', () => {
+  showSlide(screenRules);
+});
+
 export default screenGreeting;

@@ -1,4 +1,6 @@
 import loadTemplate from './loadTemplate.js';
+import showSlide from './showSlide.js';
+import screenStats from './screenStats.js';
 
 let screenGame3 = loadTemplate(`
           <header class="header">
@@ -43,4 +45,15 @@ let screenGame3 = loadTemplate(`
               </ul>
             </div>
           </div>`);
+
+const game3 = showSlide(screenGame3);
+
+const answer = game3.querySelectorAll('.game__option');
+
+for (let i = 0; i < answer.length; i++) {
+  answer[i].addEventListener('click', () => {
+    showSlide(screenStats);
+  });
+}
+
 export default screenGame3;

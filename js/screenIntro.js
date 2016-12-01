@@ -1,4 +1,6 @@
 import loadTemplate from './loadTemplate.js';
+import showSlide from './showSlide.js';
+import screenGreeting from './screenGreeting.js';
 
 let screenIntro = loadTemplate(`
           <div class="intro">
@@ -6,4 +8,14 @@ let screenIntro = loadTemplate(`
             <p class="intro__motto"><sup>*</sup> Это не фото. Это рисунок маслом нидерландского художника-фотореалиста Tjalf
             Sparnaay.</p>
           </div>`);
+
+const intro = showSlide(screenIntro);
+
+const asterisk = intro.querySelector('.intro__asterisk');
+
+asterisk.addEventListener('click', () => {
+  showSlide(screenGreeting);
+});
+
 export default screenIntro;
+

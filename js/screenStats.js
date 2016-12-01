@@ -1,4 +1,6 @@
 import loadTemplate from './loadTemplate.js';
+import showSlide from './showSlide.js';
+import screenRules from './screenRules.js';
 
 let screenStats = loadTemplate(`
           <header class="header">
@@ -109,4 +111,13 @@ let screenStats = loadTemplate(`
               </tr>
             </table>
           </div>`);
+
+const stats = showSlide(screenStats);
+
+const gameBack = stats.querySelector('.header__back');
+
+gameBack.addEventListener('click', () => {
+  showSlide(screenRules);
+});
+
 export default screenStats;
