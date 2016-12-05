@@ -1,8 +1,8 @@
 const result = {
-	finalTitle: {
-		win: 'Победа!',
-		fail: 'Поражение!'
-	}
-}
+  finalTitle: {
+    win: 'Победа!',
+    fail: 'Поражение!'
+  }
+};
 
 export default result;
