@@ -1,16 +1,16 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
 import screenGame1 from './screenGame1.js';
+import {gameHeaderSimple} from './blocks/gameHeader.js';
+
+const rulesFormTmpl = `
+          <form class="rules__form">
+            <input class="rules__input" type="text" placeholder="Ваше Имя">
+            <button class="rules__button  continue" type="submit" disabled>Go!</button>
+          </form>`;
 
 let screenRules = loadTemplate(`
-          <header class="header">
-            <div class="header__back">
-              <span class="back">
-                <img src="img/arrow_left.svg" width="45" height="45" alt="Back">
-                <img src="img/logo_small.png" width="101" height="44">
-              </span>
-            </div>
-          </header>
+          ${gameHeaderSimple}
           <div class="rules  central--none">
             <h1 class="rules__title">Правила</h1>
             <p class="rules__description">Угадай 10 раз для каждого изображения фото <img
@@ -22,10 +22,7 @@ let screenRules = loadTemplate(`
               <br>
               Готовы?
             </p>
-            <form class="rules__form">
-              <input class="rules__input" type="text" placeholder="Ваше Имя">
-              <button class="rules__button  continue" type="submit" disabled>Go!</button>
-            </form>
+            ${rulesFormTmpl}
           </div>`);
 
 const rules = showSlide(screenRules);
