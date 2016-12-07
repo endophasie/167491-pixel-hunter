@@ -1,9 +1,7 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
 import screenGame3 from './screenGame3.js';
-import game from './data/game.js';
-import {gameHeader} from './blocks/gameHeader.js';
-import {gameOption2} from './blocks/gameOption.js';
+import {game, gameHeader, gameOption2} from './blocks/game.js';
 import gameStatsResult from './blocks/gameStatsResult.js';
 
 let screenGame2 = loadTemplate(`

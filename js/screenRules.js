@@ -1,7 +1,7 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
 import screenGame1 from './screenGame1.js';
-import {gameHeaderSimple} from './blocks/gameHeader.js';
+import {gameHeaderSimple} from './blocks/game.js';
 
 const rulesFormTmpl = `
           <form class="rules__form">

@@ -2,7 +2,7 @@ import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
 import screenRules from './screenRules.js';
 import result from './data/result.js';
-import {gameHeaderSimple} from './blocks/gameHeader.js';
+import {gameHeaderSimple} from './blocks/game.js';
 import gameStatsResult from './blocks/gameStatsResult.js';
 
 const statTitle = `<h1>${result.finalTitle.win}</h1>`;
