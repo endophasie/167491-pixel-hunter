@@ -1,34 +1,21 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
 import screenRules from './screenRules.js';
+import result from './data/result.js';
+import {gameHeaderSimple} from './blocks/game.js';
+import gameStatsResult from './blocks/gameStatsResult.js';
+
+const statTitle = `<h1>${result.finalTitle.win}</h1>`;
 
 let screenStats = loadTemplate(`
-          <header class="header">
-            <div class="header__back">
-              <span class="back">
-              <img src="img/arrow_left.svg" width="45" height="45" alt="Back">
-              <img src="img/logo_small.png" width="101" height="44">
-              </span>
-            </div>
-          </header>
+          ${gameHeaderSimple}
           <div class="result">
-            <h1>Победа!</h1>
+            ${statTitle}
             <table class="result__table">
               <tr>
                 <td class="result__number">1.</td>
                 <td colspan="2">
-                  <ul class="stats">
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--slow"></li>
-                    <li class="stats__result stats__result--fast"></li>
-                    <li class="stats__result stats__result--correct"></li>
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                    <li class="stats__result stats__result--slow"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                    <li class="stats__result stats__result--fast"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                  </ul>
+                  ${gameStatsResult}
                 </td>
                 <td class="result__points">×&nbsp;100</td>
                 <td class="result__total">900</td>
@@ -62,18 +49,7 @@ let screenStats = loadTemplate(`
               <tr>
                 <td class="result__number">2.</td>
                 <td>
-                  <ul class="stats">
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--slow"></li>
-                    <li class="stats__result stats__result--fast"></li>
-                    <li class="stats__result stats__result--correct"></li>
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                    <li class="stats__result stats__result--slow"></li>
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--fast"></li>
-                    <li class="stats__result stats__result--wrong"></li>
-                  </ul>
+                  ${gameStatsResult}
                 </td>
                 <td class="result__total"></td>
                 <td class="result__total  result__total--final">fail</td>
@@ -83,18 +59,7 @@ let screenStats = loadTemplate(`
               <tr>
                 <td class="result__number">3.</td>
                 <td colspan="2">
-                  <ul class="stats">
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--slow"></li>
-                    <li class="stats__result stats__result--fast"></li>
-                    <li class="stats__result stats__result--correct"></li>
-                    <li class="stats__result stats__result--wrong"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                    <li class="stats__result stats__result--slow"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                    <li class="stats__result stats__result--fast"></li>
-                    <li class="stats__result stats__result--unknown"></li>
-                  </ul>
+                  ${gameStatsResult}
                 </td>
                 <td class="result__points">×&nbsp;100</td>
                 <td class="result__total">900</td>
