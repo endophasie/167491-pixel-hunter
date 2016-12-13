@@ -1,12 +1,11 @@
 import loadTemplate from './loadTemplate.js';
 import showSlide from './showSlide.js';
-import screenGame2 from './screenGame2.js';
 import {game, gameHeader, gameOption1} from './blocks/game.js';
 import gameStatsResult from './blocks/gameStatsResult.js';
 
 export default (data) => {
 
-  let screenGame1 = loadTemplate(`
+  let screenGame = loadTemplate(`
             ${gameHeader}
             <div class="game">
               <p class="game__task">${game.questions.questionDouble.text}</p>
@@ -17,15 +16,15 @@ export default (data) => {
               ${gameStatsResult}
             </div>`);
 
-  const game1 = showSlide(screenGame1);
+  const game = showSlide(screenGame);
 
-  const answer = game1.querySelectorAll('.game__answer');
+  const answer = game.querySelectorAll('.game__answer');
 
   for (let i = 0; i < answer.length; i++) {
     answer[i].addEventListener('click', () => {
-      screenGame2();
+      //screenGame2();
     });
   }
 
-  return game1;
+  return game;
 }

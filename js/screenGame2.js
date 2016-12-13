@@ -4,24 +4,27 @@ import screenGame3 from './screenGame3.js';
 import {game, gameHeader, gameOption2} from './blocks/game.js';
 import gameStatsResult from './blocks/gameStatsResult.js';
 
-let screenGame2 = loadTemplate(`
-          ${gameHeader}
-          <div class="game">
-            <p class="game__task">${game.questions.questionOnly.text}</p>
-            <form class="game__content  game__content--wide">
-              ${gameOption2}
-            </form>
-            ${gameStatsResult}
-          </div>`);
+export default (data) => {
 
-const game2 = showSlide(screenGame2);
+  let screenGame2 = loadTemplate(`
+            ${gameHeader}
+            <div class="game">
+              <p class="game__task">${game.questions.questionOnly.text}</p>
+              <form class="game__content  game__content--wide">
+                ${gameOption2}
+              </form>
+              ${gameStatsResult}
+            </div>`);
 
-const answer = game2.querySelectorAll('.game__answer');
+  const game2 = showSlide(screenGame2);
 
-for (let i = 0; i < answer.length; i++) {
-  answer[i].addEventListener('click', () => {
-    showSlide(screenGame3);
-  });
+  const answer = game2.querySelectorAll('.game__answer');
+
+  for (let i = 0; i < answer.length; i++) {
+    answer[i].addEventListener('click', () => {
+      screenGame3();
+    });
+  }
+
+  return game2;
 }
-
-export default screenGame2;

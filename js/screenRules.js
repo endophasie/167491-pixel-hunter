@@ -3,46 +3,49 @@ import showSlide from './showSlide.js';
 import screenGame1 from './screenGame1.js';
 import {gameHeaderSimple} from './blocks/game.js';
 
-const rulesFormTmpl = `
-          <form class="rules__form">
-            <input class="rules__input" type="text" placeholder="Ваше Имя">
-            <button class="rules__button  continue" type="submit" disabled>Go!</button>
-          </form>`;
+export default () => {
 
-let screenRules = loadTemplate(`
-          ${gameHeaderSimple}
-          <div class="rules  central--none">
-            <h1 class="rules__title">Правила</h1>
-            <p class="rules__description">Угадай 10 раз для каждого изображения фото <img
-              src="img/photo_icon.png" width="16" height="16"> или рисунок <img
-              src="img/paint_icon.png" width="16" height="16" alt="">.<br>
-              Фотографиями или рисунками могут быть оба изображения.<br>
-              На каждую попытку отводится 30 секунд.<br>
-              Ошибиться можно не более 3 раз.<br>
-              <br>
-              Готовы?
-            </p>
-            ${rulesFormTmpl}
-          </div>`);
+  const rulesFormTmpl = `
+            <form class="rules__form">
+              <input class="rules__input" type="text" placeholder="Ваше Имя" autofocus>
+              <button class="rules__button  continue" type="submit" disabled>Go!</button>
+            </form>`;
 
-const rules = showSlide(screenRules);
+  let screenRules = loadTemplate(`
+            ${gameHeaderSimple}
+            <div class="rules  central--none">
+              <h1 class="rules__title">Правила</h1>
+              <p class="rules__description">Угадай 10 раз для каждого изображения фото <img
+                src="img/photo_icon.png" width="16" height="16"> или рисунок <img
+                src="img/paint_icon.png" width="16" height="16" alt="">.<br>
+                Фотографиями или рисунками могут быть оба изображения.<br>
+                На каждую попытку отводится 30 секунд.<br>
+                Ошибиться можно не более 3 раз.<br>
+                <br>
+                Готовы?
+              </p>
+              ${rulesFormTmpl}
+            </div>`);
 
-const rulesForm = rules.querySelector('.rules__form');
-const rulesSubmit = rulesForm.querySelector('.rules__button');
-const rulesField = rulesForm.querySelector('.rules__input');
+  const rules = showSlide(screenRules);
 
-rulesField.oninput = (e) => {
-  if (e.target.value) {
-    rulesSubmit.removeAttribute('disabled');
-  } else {
-    rulesSubmit.setAttribute('disabled', '');
-  }
-};
+  const rulesForm = rules.querySelector('.rules__form');
+  const rulesSubmit = rulesForm.querySelector('.rules__button');
+  const rulesField = rulesForm.querySelector('.rules__input');
 
-rulesForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+  rulesField.oninput = (e) => {
+    if (e.target.value) {
+      rulesSubmit.removeAttribute('disabled');
+    } else {
+      rulesSubmit.setAttribute('disabled', '');
+    }
+  };
 
-  showSlide(screenGame1);
-});
+  rulesForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-export default screenRules;
+    screenGame1();
+  });
+
+  return rules;
+}
