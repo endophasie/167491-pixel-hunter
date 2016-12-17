@@ -8,10 +8,9 @@ export default (data) => {
   let screenGame = loadTemplate(`
             ${gameHeader}
             <div class="game">
-              <p class="game__task">${game.questions.questionDouble.text}</p>
+              <p class="game__task">${game.questionsType.text}</p>
               <form class="game__content">
-                ${gameOption1}
-                ${gameOption1}
+                ${gameOption}
               </form>
               ${gameStatsResult}
             </div>`);
